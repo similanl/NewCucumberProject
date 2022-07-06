@@ -9,8 +9,8 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "html:target/cucumber-report.html","json:target/cucumber-report.json","me.jvt.cucumber.report.PrettyReports:target/cucumber"},
         features = "src/test/resources/features",
         glue = "com/cydeo/step_definitions",
-        tags = "@wip",
-        dryRun = false
+        tags = "@dataTable",
+        dryRun = true
 
 )
 public class CukesRunner {
