@@ -1,4 +1,4 @@
-package com.cydeo.test.utilities;
+package com.cydeo.utilities;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -21,26 +21,27 @@ public class ClickAndVerifyRadioButton {
 //        matching option, it should click and verify option is Selected.
 //                Print out verification: true
 
-        WebDriver driver = WebDriverFactory.getDriver("chrome");
-        driver.get("https://practice.cydeo.com/radio_buttons");
 
-        System.out.println(clickAndVerifyRadioButton(driver, "name", "sport"));
+        Driver.getDriver().get("https://practice.cydeo.com/radio_buttons");
+
+        System.out.println(clickAndVerifyRadioButton(Driver.getDriver(), "name", "sport"));
 
 
     }
-    public static boolean clickAndVerifyRadioButton(WebDriver driver, String nameAttribute, String idAttribute){
+
+    public static boolean clickAndVerifyRadioButton(WebDriver driver, String nameAttribute, String idAttribute) {
 
         ////input[@name='sport']
-        String locator1 = "//input[@" + nameAttribute + "='" +idAttribute + "']";
+        String locator1 = "//input[@" + nameAttribute + "='" + idAttribute + "']";
 
         List<WebElement> radioBtns = driver.findElements(By.xpath(locator1));
 
-        for (WebElement each : radioBtns){
+        for (WebElement each : radioBtns) {
             each.click();
-            return each.isSelected()? true: false;
+            return each.isSelected() ? true : false;
         }
 
 
-return true;
+        return true;
     }
 }

@@ -1,4 +1,4 @@
-package com.cydeo.test.utilities;
+package com.cydeo.utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -28,19 +28,19 @@ public class Driver {
                                 case "chrome":
                                         WebDriverManager.chromedriver().setup();
                                         driver = new ChromeDriver();
-                                        driver.manage().window().maximize();
-                                        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                                         break;
                                 case "firefox":
                                         WebDriverManager.firefoxdriver().setup();
                                         driver = new FirefoxDriver();
-                                        driver.manage().window().maximize();
-                                        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
                                         break;
                                 default:
                                         System.out.println("Unknown Browser Type" + browserType);
                                         driver = null;
                         }
+
+                        driver.manage().window().maximize();
+                        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                        return driver;
 
 
                 }

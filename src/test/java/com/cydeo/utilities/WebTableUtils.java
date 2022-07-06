@@ -1,9 +1,10 @@
-package com.cydeo.test.utilities;
+package com.cydeo.utilities;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
+
 
 public class WebTableUtils {
 
@@ -20,7 +21,7 @@ public class WebTableUtils {
     //expectedOrderDate matching actualOrderDate.
     public static void orderVerify(WebDriver driver, String customerName, String expectedOrderDate){
 
-        Assert.assertEquals(WebTableUtils.returnOrderDate(driver,customerName),expectedOrderDate, "Verify order failed!");
+        Assert.assertEquals("Verify order failed!",WebTableUtils.returnOrderDate(driver,customerName),expectedOrderDate);
 
     }
 

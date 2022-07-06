@@ -1,10 +1,11 @@
-package com.cydeo.test.utilities;
+package com.cydeo.utilities;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+
 
 import java.util.Set;
 
@@ -34,20 +35,20 @@ public class BrowserUtils {
         }
 
         String actualTitle = expectedTitle;
-        Assert.assertTrue(actualTitle.contains(expectedTitle), "Title verification failed!");
+        Assert.assertTrue("Title verification failed!",actualTitle.contains(expectedTitle) );
 
     }
 
     public static void verifyTitle(WebDriver driver, String expectedTitle){
 
-        Assert.assertEquals(driver.getTitle(),expectedTitle,"Verify title failed!");
+        Assert.assertEquals("Verify title failed!",driver.getTitle(),expectedTitle);
 
 
     }
 
     public static void verifyTextEqual(WebElement element, String expectedText){
 
-        Assert.assertEquals(element.getText(),expectedText,"Verify text failed");
+        Assert.assertEquals("Verify text failed",element.getText(),expectedText);
 
     }
 
