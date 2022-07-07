@@ -1,7 +1,7 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.ViewAllOrderPage;
-import com.cydeo.pages.WebTableOrderPage;
+import com.cydeo.pages.WebTableOrderPageWebTableOrder;
 import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
@@ -9,14 +9,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
-import java.util.List;
 
 public class WebTableOrder_StepDef {
 
-    WebTableOrderPage webTableOrderPage = new WebTableOrderPage();
+    WebTableOrderPageWebTableOrder webTableOrderPage = new WebTableOrderPageWebTableOrder();
     ViewAllOrderPage viewAllOrderPage = new ViewAllOrderPage();
     Select select;
 

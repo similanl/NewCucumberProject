@@ -5,11 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class BasePage {
+public class BasePage_WebTable_Order {
 
 //common elements for all pages
 
-    public BasePage(){
+    public BasePage_WebTable_Order(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
 

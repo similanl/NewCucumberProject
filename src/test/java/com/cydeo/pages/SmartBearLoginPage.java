@@ -1,5 +1,6 @@
 package com.cydeo.pages;
 
+import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -13,14 +14,24 @@ public class SmartBearLoginPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+    public void loginSmartBear(){
+        usernameInput.sendKeys(ConfigurationReader.getProperty("smartbear.username"));
+        passwordInput.sendKeys(ConfigurationReader.getProperty("smartbear.password"));
+        loginBtn.click();
+    }
+
+
+
     @FindBy(id = "ctl00_MainContent_username")
-    public WebElement usernameInput;
+    private WebElement usernameInput;
 
     @FindBy(id = "ctl00_MainContent_password")
-    public WebElement passwordInput;
+    private WebElement passwordInput;
 
     @FindBy(xpath = "//input[@type=\"submit\"]")
-    public WebElement loginBtn;
+    private WebElement loginBtn;
+
+
 
     @FindBy(linkText = "Order")
     public WebElement orderTab;

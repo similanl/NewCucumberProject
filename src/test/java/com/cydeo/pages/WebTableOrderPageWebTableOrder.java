@@ -8,14 +8,14 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class WebTableOrderPage extends BasePage{
+public class WebTableOrderPageWebTableOrder extends BasePage_WebTable_Order {
 
 //    web.app.url=https://web-table-2.cydeo.com/login
 //    web.app.username=Test
 //    web.app.password=Tester
 
 
-    public WebTableOrderPage(){
+    public WebTableOrderPageWebTableOrder(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
