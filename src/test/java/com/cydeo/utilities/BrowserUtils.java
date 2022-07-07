@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
+import java.util.List;
 import java.util.Set;
 
 //    TC : Create utility method
@@ -57,6 +58,18 @@ public class BrowserUtils {
 
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
         wait.until(ExpectedConditions.invisibilityOf(element));
+
+    }
+
+    public static void clickRadioButton(List<WebElement> listOfRadioBtn, String buttonWantedToBeClick){
+
+        for (WebElement each : listOfRadioBtn){
+            if (each.getText().equalsIgnoreCase(buttonWantedToBeClick)){
+                each.click();
+            }
+        }
+
+
 
     }
 
