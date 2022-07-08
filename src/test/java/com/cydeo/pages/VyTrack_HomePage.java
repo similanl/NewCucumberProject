@@ -5,11 +5,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ViewAllOrderPage {
-    public ViewAllOrderPage(){
+import java.util.ArrayList;
+import java.util.List;
+
+public class VyTrack_HomePage {
+
+    public VyTrack_HomePage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
-    @FindBy (xpath = "//table//tbody//tr[2]//td[2]")
-    public WebElement firstCustomerOnList;
+
+    @FindBy (css = ".nav-multilevel.main-menu>li>a")
+    public List<WebElement> modulesNameDisplayed;
+
 
 }

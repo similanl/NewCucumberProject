@@ -15,12 +15,12 @@ public class ConfigurationReader {
     static {
         FileInputStream file = null;
 
-        try{
+        try {
             file = new FileInputStream("configuration.properties");
             properties.load(file);
             file.close();
 
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Error occured while reading configuration file");
             e.printStackTrace();
 
@@ -29,7 +29,7 @@ public class ConfigurationReader {
     }
 
 
-    public static String getProperty(String key){
+    public static String getProperty(String key) {
         return properties.getProperty(key);
     }
 

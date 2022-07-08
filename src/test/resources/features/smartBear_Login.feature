@@ -6,7 +6,6 @@ Feature: Order form submission
   Scenario Outline: User fills out and submits the order form, so that user can see order info in the
 
     Given User is logged into SmartBear Tester account and on Order page
-    When User clicks on order
     And User selects "<Product Name>" from product dropdown
     And User enters "<Quantity>" to quantity
     And User enters "<Costumer Name>" to costumer name

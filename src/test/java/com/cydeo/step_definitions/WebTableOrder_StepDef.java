@@ -1,6 +1,7 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.ViewAllOrderPage;
+import com.cydeo.pages.WebTableLoginPage;
 import com.cydeo.pages.WebTableOrderPageWebTableOrder;
 import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.ConfigurationReader;
@@ -14,13 +15,13 @@ import org.openqa.selenium.support.ui.Select;
 public class WebTableOrder_StepDef {
 
     WebTableOrderPageWebTableOrder webTableOrderPage = new WebTableOrderPageWebTableOrder();
-    ViewAllOrderPage viewAllOrderPage = new ViewAllOrderPage();
     Select select;
+    WebTableLoginPage webTableLoginPage = new WebTableLoginPage();
 
     @Given("user is already logged in and on order page")
     public void user_is_already_logged_in_and_on_order_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("web.app.url"));
-        webTableOrderPage.login("Test", "Tester");
+        webTableLoginPage.login("Test", "Tester");
 
 
     }
@@ -86,8 +87,9 @@ public class WebTableOrder_StepDef {
 
     @Then("user should see {string} in first row of the web table")
     public void user_should_see_in_first_row_of_the_web_table(String expectedFirstRowCustomerName) {
-        String actualFirstRowCustomerNmae = viewAllOrderPage.firstCustomerOnList.getText();
-        Assert.assertTrue("Verify name faild",actualFirstRowCustomerNmae.equals(expectedFirstRowCustomerName));
+        webTableOrderPage.viewAllOrders.click();
+        String actualFirstRowCustomerName = new ViewAllOrderPage().firstCustomerOnList.getText();
+        Assert.assertTrue("Verify name failed",actualFirstRowCustomerName.equals(expectedFirstRowCustomerName));
     }
 
 

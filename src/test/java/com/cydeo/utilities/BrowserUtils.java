@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -72,6 +73,18 @@ public class BrowserUtils {
 
 
     }
+
+    public static List<String> convertListWebElmToListString(List<WebElement> listOfElm){
+
+        List<String> listOfString = new ArrayList<>();
+
+        for (WebElement each: listOfElm) {
+            listOfString.add(each.getText());
+        }
+
+        return listOfString;
+    }
+
 
 
 

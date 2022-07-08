@@ -14,8 +14,9 @@ import org.junit.runner.RunWith;
                 "rerun:target/rerun.txt" }, //I have 4 types of report json, html, cucumber and rerun for fail cases
         features = "src/test/resources/features",
         glue = "com/cydeo/step_definitions",
-        tags = "",
-        dryRun = false
+        dryRun = false,
+        tags = "@dataTable"
+
 
 )
 public class CukesRunner {

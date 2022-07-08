@@ -9,8 +9,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class SmartBearLoginPage {
-    public SmartBearLoginPage() {
+public class SmartBearPage extends BasePage_SmartBear{
+    public SmartBearPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -19,8 +19,6 @@ public class SmartBearLoginPage {
         passwordInput.sendKeys(ConfigurationReader.getProperty("smartbear.password"));
         loginBtn.click();
     }
-
-
 
     @FindBy(id = "ctl00_MainContent_username")
     private WebElement usernameInput;

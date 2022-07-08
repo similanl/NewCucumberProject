@@ -1,7 +1,9 @@
+@webTable
 Feature: Login
   User Story: as user I should be able to log in and see orders word in the url
   Background:
     Given User is on web table login page
+
   @webtables_login
   Scenario: User should login with valid credentials
     When User enters username "Test"
@@ -10,7 +12,7 @@ Feature: Login
     Then User should see url contains word orders
 
   @webtables_login
-  Scenario: positive login Scenario
+  Scenario: User should login with valid credentials (shorter way)
     When User enters username "Test" and password "Tester" and clicks login
     Then User should see url contains word orders
 

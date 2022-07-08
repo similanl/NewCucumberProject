@@ -2,6 +2,7 @@ package com.cydeo.utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -15,47 +16,48 @@ public class Driver {
 
         }
 
-        private static WebDriver driver;
+//        private static WebDriver driver;
+        private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
 
         public static WebDriver getDriver() {
 
 
-                if (driver == null){
+                if (driverPool.get() == null){
 
                         String browserType = ConfigurationReader.getProperty("browser");
 
                         switch (browserType.toLowerCase()){
                                 case "chrome":
                                         WebDriverManager.chromedriver().setup();
-                                        driver = new ChromeDriver();
+                                        driverPool.set(new ChromeDriver());
                                         break;
                                 case "firefox":
                                         WebDriverManager.firefoxdriver().setup();
-                                        driver = new FirefoxDriver();
+                                        driverPool.set(new FirefoxDriver());
                                         break;
                                 default:
                                         System.out.println("Unknown Browser Type" + browserType);
-                                        driver = null;
+                                        driverPool = null;
                         }
 
-                        driver.manage().window().maximize();
-                        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-                        return driver;
+                        driverPool.get().manage().window().maximize();
+                        driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                        return driverPool.get();
 
 
                 }
-                return driver;
+                return driverPool.get();
 
         }
 
         public static void closeDriver(){
 
-                if (driver != null){
-                        driver.quit();
-                        driver = null;
+                if (driverPool.get() != null){
+                        driverPool.get().quit();
+                        driverPool.remove();
                 }
 
-                driver=null;
+
 
         }
 }

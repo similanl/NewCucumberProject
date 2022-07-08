@@ -19,19 +19,8 @@ public class WebTableOrderPageWebTableOrder extends BasePage_WebTable_Order {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    public void login(String username, String password){
-    usernameInputBox.sendKeys(username);
-    passwordInputBox.sendKeys(password + Keys.ENTER);
 
-    }
-    //login page
-    @FindBy (name = "username")
-    private WebElement usernameInputBox;
-
-    @FindBy (name = "password")
-    private WebElement passwordInputBox;
-    
-
+    //order page
     @FindBy(name = "product")
     public WebElement productSelect;
 
