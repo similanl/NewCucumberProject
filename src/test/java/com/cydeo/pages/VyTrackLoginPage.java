@@ -18,6 +18,7 @@ public class VyTrackLoginPage {
 
     public void loginVyTrack(String UserRole){
         UserRole = UserRole.toLowerCase();
+        //vytrack.driver.username
         String username = "vytrack."+UserRole+".username";
         String password = "vytrack."+UserRole+".password";
         usernameInputBox.sendKeys(ConfigurationReader.getProperty(username));

@@ -12,8 +12,19 @@ public class VyTrack_BasePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+    public WebElement getFleetModuleBtn(){
+        return fleetModuleBtn;
+    }
+
     @FindBy(xpath = "//span[contains(text(),'Fleet')]/parent::a")
     private WebElement fleetModuleBtn;
+
+    @FindBy(xpath = "(//ul[@class='dropdown-menu dropdown-menu-level-1 menu menu-level-1'])[1]//li[@class='dropdown-menu-single-item first']")
+    private WebElement vehicleFeature;
+
+
+    @FindBy(xpath = "(//ul[@class='dropdown-menu dropdown-menu-level-1 menu menu-level-1'])[1]//li[@class='dropdown-menu-single-item first']")
+    private WebElement vehicleOdometerFeature;
 
     @FindBy(xpath = "//span[contains(text(),'Customers')]/parent::a")
     private WebElement customersModuleBtn;
@@ -31,10 +42,14 @@ public class VyTrack_BasePage {
 
 
         if (moduleName.equalsIgnoreCase("fleet")) {
-            actions.moveToElement(fleetModuleBtn);
+            actions.moveToElement(fleetModuleBtn).perform();
+
             switch (featureName) {
                 case "vehicles":
+                    vehicleFeature.click();
+                    break;
                 case "vehicle odometer":
+
                 case "vehicle cost":
                 case "vehicle contract":
                 case "vehicle fuel logs":
@@ -45,38 +60,28 @@ public class VyTrack_BasePage {
             }
 
         } else if (moduleName.equalsIgnoreCase("customers")) {
+            actions.moveToElement(customersModuleBtn).perform();
+            switch (featureName) {
+                case "accounts":
+                case "contacts":
+
+
+            }
 
 
         } else if (moduleName.equalsIgnoreCase("activities")) {
+            actions.moveToElement(activitiesModuleBtn).perform();
+            switch (featureName){
+                case "calender events":
+            }
 
 
         } else if (moduleName.equalsIgnoreCase("system")) {
+            actions.moveToElement(systemsModuleBtn).perform();
 
 
         }
 
-
-        switch (moduleName) {
-
-            case "fleet":
-            case "fleets":
-                actions.moveToElement(fleetModuleBtn);
-                break;
-            case "customer":
-            case "customers":
-                actions.moveToElement(customersModuleBtn);
-                break;
-            case "activities":
-            case "activitie":
-                actions.moveToElement(activitiesModuleBtn);
-                break;
-            case "systems":
-            case "system":
-                actions.moveToElement(systemsModuleBtn);
-                break;
-
-
-        }
 
     }
 
