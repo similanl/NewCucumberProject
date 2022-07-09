@@ -1,8 +1,8 @@
-@netflix
+
 Feature: Movie suggestion feature
   As a user, I should be able to get movies according to my preference.
 
-  @netflixScenario
+
   Scenario: Movie search
     Given I like "action"
     And I like "drama"
@@ -12,7 +12,7 @@ Feature: Movie suggestion feature
     Then I should get right recommendation
 
 
-  @netflixDataTable
+
   Scenario: Movie search with data table
     Given I like
       | action    |
@@ -23,7 +23,7 @@ Feature: Movie suggestion feature
     Then I should get right recommendation
 
 
-  @netflixDataTableMap
+
   Scenario: Movie search with data table map
     Given I like below favorite movie with certain type
       | action    | John Wick     |

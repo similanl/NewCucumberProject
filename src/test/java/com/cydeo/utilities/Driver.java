@@ -35,6 +35,10 @@ public class Driver {
                                         WebDriverManager.firefoxdriver().setup();
                                         driverPool.set(new FirefoxDriver());
                                         break;
+                                case "safari":
+                                        WebDriverManager.safaridriver().setup();
+                                        driverPool.set(new SafariDriver());
+                                        break;
                                 default:
                                         System.out.println("Unknown Browser Type" + browserType);
                                         driverPool = null;
@@ -51,13 +55,10 @@ public class Driver {
         }
 
         public static void closeDriver(){
-
                 if (driverPool.get() != null){
                         driverPool.get().quit();
                         driverPool.remove();
                 }
-
-
-
         }
+
 }

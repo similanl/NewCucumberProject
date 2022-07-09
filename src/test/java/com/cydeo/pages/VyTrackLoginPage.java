@@ -16,10 +16,10 @@ public class VyTrackLoginPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    public void loginVyTrack(String whoIsTheUser){
-        whoIsTheUser = whoIsTheUser.toLowerCase();
-        String username = "vytrack."+whoIsTheUser+".username";
-        String password = "vytrack."+whoIsTheUser+".password";
+    public void loginVyTrack(String UserRole){
+        UserRole = UserRole.toLowerCase();
+        String username = "vytrack."+UserRole+".username";
+        String password = "vytrack."+UserRole+".password";
         usernameInputBox.sendKeys(ConfigurationReader.getProperty(username));
         passwordInputBox.sendKeys(ConfigurationReader.getProperty(password)+ Keys.ENTER);
 

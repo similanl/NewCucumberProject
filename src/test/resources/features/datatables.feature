@@ -1,7 +1,7 @@
 Feature:
     #datatable
 
-  @dataTable
+  @dataTable1
   Scenario: Menu Options Driver
     Given user logged in on the fleet management homepage with the "driver" information
     Then use should be able to see following modules
@@ -11,7 +11,7 @@ Feature:
       | System     |
 
 
-  # DataTable - ListOfMap
+  @dataTable2
   Scenario: verify each product price
     Given User is on the HomePage
     Then User should be able to see expected prices in following products
@@ -31,7 +31,7 @@ Feature:
 #List[Map1->((K: Category,V: Phones),(Product,Samsunggalaxy s6), (expectedPrice, 360))
 #     Map2->((Category,Phones),(Product,Nokia lumia 1520 ), (expectedPrice, 820))
 #     Map3->((Category,Phones),(Product,Nexus 6 ), (expectedPrice, 650))]
-  @wip
+  @dataTable3
   Scenario: verify each product price listOfList
     Given User is on the HomePage
     Then User should be able to see expected prices in following products with listOflist
