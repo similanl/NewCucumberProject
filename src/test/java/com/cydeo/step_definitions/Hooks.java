@@ -12,16 +12,11 @@ public class Hooks {
     @Before
     public void setup(Scenario scenario){
 
-        System.out.println("before scenario is running");
-//        System.out.println("Scenario name ->" + scenario.getName());
-
-
 
     }
 
    @After
     public void teardown(Scenario scenario) {
-        System.out.println("after scenario is running");
 
         if(scenario.isFailed()) {
             byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);// casting the driver to take screenshot and storing the screenshot in byte array.
@@ -30,7 +25,7 @@ public class Hooks {
 
 
 
-//        Driver.closeDriver();
+        Driver.closeDriver();
 
     }
 
